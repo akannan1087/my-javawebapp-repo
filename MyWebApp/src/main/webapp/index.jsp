@@ -1,5 +1,5 @@
 <html>
 <body>
-<h2>Hi Welcome to CICD using Jenkins! We are implementing webhooks to trigger jenkins job instantly!!!</h2>
+<h2>Hi All!  We are integrating with Sonarqube for automating static code analysis!!!</h2>
 </body>
 </html>
