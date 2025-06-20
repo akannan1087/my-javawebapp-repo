@@ -4,6 +4,6 @@
 	<title>Some relevant title</title>
 </head>	
 <body>
-<h2>Hi All!  We are integrating with Sonarqube for automating static code analysis!!!</h2>
+<h2>Hi All!  We are integrating with Nexus for build artifacts from Jenkins!!!!</h2>
 </body>
 </html>
