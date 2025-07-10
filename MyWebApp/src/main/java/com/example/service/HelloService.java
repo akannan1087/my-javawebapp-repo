@@ -1,6 +1,6 @@
 package com.example.service;
 
-public class HelloService {
+class HelloService {
     public String sayHello(String name) {
         return "Hello, " + name + "!";
     }
