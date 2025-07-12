@@ -114,5 +114,6 @@ pipeline {
             slackSend channel: 'may-2025-weekend-batch', message: 'pipeline build failed..please troubleshoot'
 
         }
+    }
 }
 
