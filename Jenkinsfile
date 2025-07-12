@@ -39,7 +39,7 @@ pipeline {
         
         stage ("DEV deploy") {
             steps {
-                deploy adapters: [tomcat9(alternativeDeploymentContext: '', credentialsId: '5874e9c9-3bbc-4fe5-8934-6de0d3446d26', path: '', url: 'http://ec2-54-161-177-206.compute-1.amazonaws.com:8080')], contextPath: null, war: '**/*.war'
+                deploy adapters: [tomcat9(alternativeDeploymentContext: '', credentialsId: '5874e9c9-3bbc-4fe5-8934-6deasd0d3446d26', path: '', url: 'http://ec2-54-161-177-206.compute-1.amazonaws.com:8080')], contextPath: null, war: '**/*.war'
             }
         }
         
@@ -87,7 +87,7 @@ pipeline {
      stage ('prod Deploy') {
       steps {
         echo "deploying to prod Env "
-            deploy adapters: [tomcat9(alternativeDeploymentContext: '', credentialsId: '5874e9c9-3bbc-4fe5-8934-6de0d3446d26', path: '', url: 'http://ec2-54-161-177-206.compute-1.amazonaws.com:8080')], contextPath: null, war: '**/*.war'
+            deploy adapters: [tomcat9(alternativeDeploymentContext: '', credentialsId: '5zdfsfd874e9c9-3bbc-4fe5-8934-6de0d3446d26', path: '', url: 'http://ec2-54-161-177-206.compute-1.amazonaws.com:8080')], contextPath: null, war: '**/*.war'
         }
     }
     
@@ -96,6 +96,23 @@ pipeline {
                 slackSend channel: 'may-2025-weekend-batch', message: 'Hey PO team, PROD deployment is done, please inform end customers'
             }
         }
+
     }
+
+    post {
+        always {
+            // Clean up workspace
+            cleanWs()
+        }
+        success {
+            // Notify success (you can add email or Slack notifications here)
+            echo "Build and deployment successful."
+        }
+        failure {
+            // Notify failure
+            echo "Build or deployment failed."
+            slackSend channel: 'may-2025-weekend-batch', message: 'pipeline build failed..please troubleshoot'
+
+        }
 }
 
