@@ -31,6 +31,13 @@ pipeline {
                 }
             }
         }
+
+        stage ("Quality gate) {
+                timeout(time: 1, unit: 'HOURS') {
+                waitForQualityGate abortPipeline: true
+            }
+        }
+               
         stage ("binary upload") {
             steps {
                 nexusArtifactUploader artifacts: [[artifactId: 'MyWebApp', classifier: '', file: 'MyWebApp/target/MyWebApp.war', type: 'war']], credentialsId: 'fabbf1b2-7174-4de7-bc80-cc7be4606367', groupId: 'com.gcp', nexusUrl: 'ec2-35-175-151-27.compute-1.amazonaws.com:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'maven-snapshots', version: '1.0-SNAPSHOT'
