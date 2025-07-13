@@ -33,13 +33,13 @@ pipeline {
         }
         stage ("binary upload") {
             steps {
-                nexusArtifactUploader artifacts: [[artifactId: 'MyWebApp', classifier: '', file: 'MyWebApp/target/MyWebApp.war', type: 'war']], credentialsId: 'fabbf1b2-7174-4de7-bc80-cc7be4606367', groupId: 'com.gcp', nexusUrl: 'ec2-13-221-179-213.compute-1.amazonaws.com:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'maven-snapshots', version: '1.0-SNAPSHOT'
+                nexusArtifactUploader artifacts: [[artifactId: 'MyWebApp', classifier: '', file: 'MyWebApp/target/MyWebApp.war', type: 'war']], credentialsId: 'fabbf1b2-7174-4de7-bc80-cc7be4606367', groupId: 'com.gcp', nexusUrl: 'ec2-35-175-151-27.compute-1.amazonaws.com:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'maven-snapshots', version: '1.0-SNAPSHOT'
             }
          }
         
         stage ("DEV deploy") {
             steps {
-                deploy adapters: [tomcat9(alternativeDeploymentContext: '', credentialsId: '5874e9c9-3bbc-4fe5-8934-6deasd0d3446d26', path: '', url: 'http://ec2-54-161-177-206.compute-1.amazonaws.com:8080')], contextPath: null, war: '**/*.war'
+                deploy adapters: [tomcat9(alternativeDeploymentContext: '', credentialsId: '5874e9c9-3bbc-4fe5-8934-6deasd0d3446d26', path: '', url: 'http://ec2-13-221-244-69.compute-1.amazonaws.com:8080')], contextPath: null, war: '**/*.war'
             }
         }
         
