@@ -4,6 +4,6 @@
 	<title>Some relevant title</title>
 </head>
 <body>
-<h2>Hi All!  We are checking quality gate confitions!!!!!</h2>
+<h2>Hi everyone!  we are implementing CICD using Jenkins scripted pipeline!!!!!</h2>
 </body>
 </html>
