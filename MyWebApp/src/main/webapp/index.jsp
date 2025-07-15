@@ -4,6 +4,6 @@
 	<title>Some relevant title</title>
 </head>
 <body>
-<h2>Hi everyone!  We are deploying web app into Azure using ADO pipeline!!!!!</h2>
+<h2>Hi everyone!  We are deploying web app into Azure Cloud using ADO YAML pipeline!!!!!</h2>
 </body>
 </html>
