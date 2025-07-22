@@ -4,6 +4,6 @@
 	<title>Some relevant title</title>
 </head>
 <body>
-<h2>Hi everyone!  Hi Team! We are implementing CICD using Jenkins Declarative pipeline !!!!!</h2>
+<h2>Hi everyone!  Hi Team! Learning Declarative pipeline is fun!!!!!</h2>
 </body>
 </html>
