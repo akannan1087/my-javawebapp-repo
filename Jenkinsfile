@@ -5,12 +5,6 @@ pipeline {
         maven "Maven3"
     }
     stages {
-        stage('Checkout') {
-            steps {
-                git branch: 'main', credentialsId: '97e5de96-a4e0-4076-b2f5-ebf52dc6e6f5', url: 'https://github.com/akannan1087/my-javawebapp-repo'
-            }
-        }
-        
         stage ("Build") {
             steps {
                 sh "mvn clean install -f MyWebApp/pom.xml"
