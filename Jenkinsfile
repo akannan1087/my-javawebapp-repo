@@ -26,6 +26,13 @@ pipeline {
             }
         }
         
+        stage ("Quality gate") {
+            steps {
+                timeout(time: 1, unit: 'HOURS') { 
+                waitForQualityGate abortPipeline: true      
+            }
+        }
+        
         stage ("SAST scanning") {
             steps {
                 sh "trivy fs ./MyWebApp"
