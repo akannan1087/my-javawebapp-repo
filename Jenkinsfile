@@ -34,13 +34,13 @@ pipeline {
         
         stage ("binary upload") {
             steps {
-                nexusArtifactUploader artifacts: [[artifactId: 'MyWebApp', classifier: '', file: 'MyWebApp/target/MyWebApp.war', type: 'war']], credentialsId: '75b03606-5990-4591-8a73-71eb798abe69', groupId: 'com.gcp.app', nexusUrl: 'ec2-44-208-167-190.compute-1.amazonaws.com:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'maven-snapshots', version: '1.0-SNAPSHOT'
+                nexusArtifactUploader artifacts: [[artifactId: 'MyWebApp', classifier: '', file: 'MyWebApp/target/MyWebApp.war', type: 'war']], credentialsId: '75b03606-5990-4591-8a73-71eb798abe69', groupId: 'com.gcp.app', nexusUrl: 'ec2-18-233-155-49.compute-1.amazonaws.com:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'maven-snapshots', version: '1.0-SNAPSHOT'
             }
         }
         
         stage ("Deploy WAR") {
             steps {
-            deploy adapters: [tomcat9(credentialsId: '18d203e6-c5bb-4662-9ad5-415464fbd21f', path: '', url: 'http://ec2-3-83-3-21.compute-1.amazonaws.com:8080/')], contextPath: null, war: '**/*.war'
+            deploy adapters: [tomcat9(credentialsId: '18d203e6-c5bb-4662-9ad5-415464fbd21f', path: '', url: 'http://ec2-44-204-235-249.compute-1.amazonaws.com:8080/')], contextPath: null, war: '**/*.war'
          }
         }
         
@@ -65,7 +65,7 @@ pipeline {
         
         stage ("QA deploy") {
             steps {
-                deploy adapters: [tomcat9(credentialsId: '18d203e6-c5bb-4662-9ad5-415464fbd21f', path: '', url: 'http://ec2-3-83-3-21.compute-1.amazonaws.com:8080/')], contextPath: null, war: '**/*.war'
+                deploy adapters: [tomcat9(credentialsId: '18d203e6-c5bb-4662-9ad5-415464fbd21f', path: '', url: 'http://ec2-44-204-235-249.compute-1.amazonaws.com:8080/')], contextPath: null, war: '**/*.war'
             }
         }
         
@@ -86,7 +86,7 @@ pipeline {
 
         stage ("PROD deploy") {
             steps {
-                deploy adapters: [tomcat9(credentialsId: '18d203e6-c5bb-4662-9ad5-415464fbd21f', path: '', url: 'http://ec2-3-83-3-21.compute-1.amazonaws.com:8080/')], contextPath: null, war: '**/*.war'
+                deploy adapters: [tomcat9(credentialsId: '18d203e6-c5bb-4662-9ad5-415464fbd21f', path: '', url: 'http://ec2-44-204-235-249.compute-1.amazonaws.com:8080/')], contextPath: null, war: '**/*.war'
             }
         }
         
