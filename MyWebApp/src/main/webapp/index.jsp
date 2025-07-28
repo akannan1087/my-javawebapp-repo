@@ -4,6 +4,6 @@
 	<title>Some relevant title</title>
 </head>
 <body>
-<h2>Hi Team! this is our latest feature being implememented !!!!!!</h2>
+<h2>Hi Team! We are implementing CICD workflow using Github Actions!!!!!!!!!</h2>
 </body>
 </html>
