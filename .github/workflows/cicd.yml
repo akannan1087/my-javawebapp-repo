@@ -19,7 +19,7 @@ jobs:
     run: mvn install -f MyWebApp/pom.xml
   - name: Run SonarQube Analysis
     run: mvn -f MyWebApp/pom.xml sonar:sonar -Dsonar.projectKey=your_project_key \
-                           -Dsonar.host.url=${{ secrets.SONAR_SONAR_HOST_URL }} \
+                           -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }} \
                            -Dsonar.login=${{ secrets.SONAR_TOKEN }} \
                            -Dsonar.java.binaries=target/classes
   
