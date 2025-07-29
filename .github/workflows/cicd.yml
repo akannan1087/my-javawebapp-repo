@@ -17,11 +17,16 @@ jobs:
       distribution: 'temurin'
   - name: Build with Maven
     run: mvn install -f MyWebApp/pom.xml
-  - name: Run SonarQube Analysis
-    run: mvn -f MyWebApp/pom.xml sonar:sonar -Dsonar.projectKey=your_project_key \
-                           -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }} \
-                           -Dsonar.login=${{ secrets.SONAR_TOKEN }} \
-                           -Dsonar.java.binaries=target/classes
+  - name: Run SonarQube Scan
+    uses: sonarsource/sonarqube-scan-action@master
+    with:
+      args: >
+        -Dsonar.projectKey=my_key
+        -Dsonar.projectName=my_projet
+        -Dsonar.java.binaries=target/classes
+    env:
+      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
   
   - name: Deploy to Tomcat
     run: |
