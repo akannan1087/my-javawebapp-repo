@@ -39,3 +39,9 @@ jobs:
   # The possible outputs of the `quality-gate-status` variable are `PASSED`, `WARN` or `FAILED`.
   - name: "Here is SonarQube Quality Gate Status value.."
     run: echo "The Quality Gate status is ${{ steps.sonarqube-quality-gate-check.outputs.quality-gate-status }}"
+  - uses: act10ns/slack@v2
+    with:
+      channel: '#learn-devops-60-days'
+      status: ${{ job.status }}
+      steps: ${{ toJson(steps) }}
+    if: always()
