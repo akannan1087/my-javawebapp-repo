@@ -23,13 +23,7 @@ jobs:
       args: >
         -Dsonar.projectKey=my_key
         -Dsonar.projectName=my_projet
-        -Dsonar.java.binaries=target/classes
     env:
       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
   
-  - name: Deploy to Tomcat
-    run: |
-     curl -v -u ${{ secrets.TOMCAT_USER }}:${{ secrets.TOMCAT_PASSWORD }} \
-     -T MyWebApp/target/MyWebApp.war \
-     "http://${{ secrets.TOMCAT_HOST }}/manager/text/deploy?path=/MyWebApp&update=true"
