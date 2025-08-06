@@ -18,7 +18,7 @@ jobs:
       distribution: 'temurin'
       java-version: '17'
   - name: Build with Maven
-    run: mvn install -f MyWebApp/pom.xml
+    run: mvn clean install -f MyWebApp/pom.xml
   - name: Run SonarQube Scan
     uses: sonarsource/sonarqube-scan-action@master
     with:
