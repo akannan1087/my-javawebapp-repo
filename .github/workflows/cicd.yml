@@ -12,6 +12,11 @@ jobs:
   steps:
   - name: checkout code
     uses: actions/checkout@v3
+  - name: Set up JDK
+    uses: actions/setup-java@v3
+    with:
+      distribution: 'temurin'
+      java-version: '17'
   - name: Build with Maven
     run: mvn install -f MyWebApp/pom.xml
   - name: Run SonarQube Scan
