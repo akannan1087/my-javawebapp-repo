@@ -29,5 +29,20 @@
   <build>
     <finalName>MyWebApp</finalName>
   </build>
-
+  <plugins>
+    <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-surefire-plugin</artifactId>
+      <version>3.2.2</version>
+    </plugin>
+    <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-compiler-plugin</artifactId>
+      <version>3.11.0</version> <!-- or latest -->
+      <configuration>
+        <source>17</source> <!-- or your Java version -->
+        <target>17</target>
+      </configuration>
+    </plugin>
+  </plugins>
 </project>
