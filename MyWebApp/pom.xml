@@ -28,7 +28,6 @@
   </dependencies>
   <build>
     <finalName>MyWebApp</finalName>
-  </build>
   <plugins>
     <plugin>
       <groupId>org.apache.maven.plugins</groupId>
@@ -44,5 +43,6 @@
         <target>17</target>
       </configuration>
     </plugin>
-  </plugins>
+   </plugins>
+  </build>
 </project>
