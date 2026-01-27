@@ -25,7 +25,7 @@ jobs:
       projectBaseDir: .
       args: >
         -Dsonar.organization=akannan1087
-        -Dsonar.projectKey=my-Java-we-app
+        -Dsonar.projectKey=com.dept.app.MyWebApp
         -Dsonar.java.binaries=**/target/classes
     env:
       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
